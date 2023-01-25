@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CoffeeChess:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CoffeeChess_jar</output-path>
+    <root id="archive" name="CoffeeChess.jar">
+      <element id="module-output" name="CoffeeChess" />
+      <element id="dir-copy" path="$PROJECT_DIR$/resources" />
+    </root>
+  </artifact>
+</component>
