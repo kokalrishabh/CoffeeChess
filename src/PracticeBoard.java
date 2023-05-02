@@ -181,7 +181,25 @@ public class PracticeBoard extends VisualBoard
                     }
                     else
                     {
-                        if (tpm >= 0)
+                        if (tpm >= 0 && wrongCount == tpm)
+                        {
+                            StringBuilder errorMsgBuilder = new StringBuilder();
+                            errorMsgBuilder.append("Uh-oh! The correct moves were:\n");
+                            for (MoveTreeNode n : curr.getChildren())
+                            {
+                                errorMsgBuilder.append(n.getMove()).append('\n');
+                            }
+                            errorMsgBuilder.append('\n');
+                            errorMsgBuilder.append("That's okay! Practice and come back. I'll always be here.");
+                            JOptionPane.showMessageDialog(null, errorMsgBuilder.toString());
+                            exitSequence();
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "That move is incorrect." + (tpm >= 0 ? String.format(" %d tries left.", tpm - wrongCount) : ""));
+                            wrongCount++;
+                        }
+                        /*if (tpm >= 0)
                         {
                             if (wrongCount == tpm)
                             {
@@ -201,7 +219,7 @@ public class PracticeBoard extends VisualBoard
                                 JOptionPane.showMessageDialog(null, String.format("That move is incorrect. %d tries left.", 3 - wrongCount));
                                 wrongCount++;
                             }
-                        }
+                        }*/
                     }
                 }
                 else
